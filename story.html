@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Our Story | Black Mountain Seafood</title>
+<meta name="description" content="Carolyn and Bruce Bijesse brought ocean roots to the mountains. How Black Mountain Seafood carries on the legacy of fresh seafood on State Street.">
+<link rel="icon" href="img/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=9">
+<style>
+.shero{padding:150px 0 clamp(90px,10vw,140px)}
+.shero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,5vw,70px);align-items:center}
+.shero h1{font-size:clamp(46px,6.4vw,88px);margin:0 0 22px}
+.polaroid{background:#fff;color:var(--ink);padding:14px 14px 56px;border-radius:6px;box-shadow:0 40px 80px -30px rgba(2,18,32,.7);transform:rotate(3deg);position:relative;max-width:460px;margin-inline:auto}
+.polaroid img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.polaroid figcaption{position:absolute;bottom:14px;left:0;right:0;text-align:center;font:400 22px/1 var(--display)}
+.polaroid::before{content:"";position:absolute;top:-14px;left:50%;width:110px;height:30px;background:rgba(240,226,207,.85);transform:translateX(-50%) rotate(-3deg)}
+@media (max-width:860px){.shero-grid{grid-template-columns:1fr}.polaroid{max-width:320px}}
+
+.tl{position:relative;max-width:900px;margin-inline:auto}
+.tl-line{position:absolute;left:50%;top:0;bottom:0;width:3px;transform:translateX(-50%)}
+.tl-line::before{content:"";position:absolute;inset:0;background:currentColor;opacity:.25;border-radius:3px}
+.tl-line i{position:absolute;inset:0 0 auto;height:0;background:currentColor;border-radius:3px}
+.tl-item{display:grid;grid-template-columns:1fr 1fr;gap:70px;margin-bottom:56px;position:relative}
+.tl-item::after{content:"";position:absolute;left:50%;top:26px;width:22px;height:22px;border-radius:50%;background:var(--shell);border:4px solid currentColor;transform:translateX(-50%)}
+.tl-item .box{background:var(--shell);color:var(--ink);border-radius:var(--r);padding:24px 26px;box-shadow:var(--shadow)}
+.tl-item:nth-child(odd) .box{grid-column:1;text-align:right}
+.tl-item:nth-child(even) .box{grid-column:2}
+.tl-item .when{font:700 13px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.tl-item h3{font-size:28px;margin:10px 0 6px}
+.tl-item p{color:var(--ink-soft)}
+@media (max-width:760px){.tl-line{left:14px}.tl-item{grid-template-columns:1fr;gap:0;padding-left:44px}.tl-item::after{left:14px}.tl-item:nth-child(n) .box{grid-column:1;text-align:left}}
+
+.vlist{list-style:none;display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(28px,5vw,72px)}
+.vlist li{padding:26px 0;border-top:1px solid color-mix(in srgb,currentColor 25%,transparent);max-width:52ch}
+.vlist h3{font-size:clamp(26px,2.6vw,32px);margin-bottom:8px}
+.vlist p{opacity:.88}
+@media (max-width:760px){.vlist{grid-template-columns:1fr}}
+
+.shelf{list-style:none;max-width:860px}
+.shelf li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:12px 32px;align-items:baseline;padding:22px 0;border-bottom:1px solid color-mix(in srgb,currentColor 25%,transparent)}
+.shelf li:first-child{border-top:1px solid color-mix(in srgb,currentColor 25%,transparent)}
+.shelf h3{font-size:clamp(28px,3.4vw,40px)}
+.shelf p{opacity:.88}
+@media (max-width:600px){.shelf li{grid-template-columns:1fr}}
+
+.gal{columns:4 240px;column-gap:14px}
+.gal .ph{margin-bottom:14px;break-inside:avoid}
+.gal .ph img{height:auto}
+@media (max-width:600px){.gal{columns:2;column-gap:10px}.gal .ph{margin-bottom:10px}}
+
+.press{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.pc{display:block;text-decoration:none;background:var(--shell);color:var(--ink);border-radius:var(--r);padding:30px;box-shadow:var(--shadow);transition:transform .3s}
+.pc:hover{transform:translateY(-6px)}
+.pc small{display:block;font:700 13px/1.3 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.pc h3{font-size:28px;margin:12px 0 8px}
+.pc p{color:var(--ink-soft)}
+.pc .go{margin-top:16px;font-weight:700;color:var(--ink);text-decoration:underline;text-underline-offset:.2em}
+@media (max-width:760px){.press{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="brand" href="index.html" aria-label="Black Mountain Seafood home"><img src="img/logo.jpg" alt=""><b>Black Mountain Seafood</b></a>
+    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="visit.html">Visit</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="story.html" aria-current="page">Our Story</a>
+      <a class="btn btn-buoy" href="index.html#weekly">Get the weekly catch</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="sea shero">
+  <div class="wrap shero-grid">
+    <div>
+      <h1 class="split">Ocean roots. Mountain people now.</h1>
+      <p class="lede rv">Carolyn is from the Virgin Islands. Bruce is from Long Island. Together they run Black Mountain Seafood, a small shop with one big idea: bring the freshest seafood they can to the mountains, and become part of how this town plans its weekly meals.</p>
+      <p class="rv" style="margin-top:24px"><span data-status></span></p>
+    </div>
+    <figure class="polaroid rv" data-d=".2"><img src="img/owners.jpg" alt="Carolyn and Bruce on the steps of their shop"><figcaption>Carolyn and Bruce</figcaption></figure>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head center rv"><h2>Carrying on a legacy.</h2></div>
+    <div class="tl" id="tl">
+      <div class="tl-line"><i></i></div>
+      <div class="tl-item rv"><div class="box"><p class="when">December 2022</p><h3>A seafood shop on State Street</h3><p>Roger and Debra Queen of Fairview Seafood Company open a Black Mountain location in a small building at 213 E State St.</p></div></div>
+      <div class="tl-item rv"><div class="box"><p class="when">Week after week</p><h3>Two regulars</h3><p>Carolyn and Bruce stop in nearly every week. A bag of fresh fish becomes their special treat at the end of the work week.</p></div></div>
+      <div class="tl-item rv"><div class="box"><p class="when">Late 2025</p><h3>Taking the keys</h3><p>They buy the Black Mountain shop from the Queens. Carolyn heads home to the Virgin Islands, then works at Fairview Seafood to learn the trade.</p></div></div>
+      <div class="tl-item rv"><div class="box"><p class="when">March 6, 2026</p><h3>Black Mountain Seafood opens</h3><p>Same great product, a new name, and a promise to change as little as possible about what the town already loved.</p></div></div>
+      <div class="tl-item rv"><div class="box"><p class="when">Today</p><h3>Open year-round</h3><p>Fresh catch every Friday and Saturday, a weekly email for pre-orders, and a growing book of community recipes.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head rv"><h2>Healthy food, from healthy waters.</h2></div>
+    <ul class="vlist">
+      <li><h3>Sustainably caught</h3><p>Most of our seafood is caught sustainably in the Atlantic, with a few responsibly aquacultured outliers.</p></li>
+      <li><h3>Healthy food systems</h3><p>We're passionate about good food that's good for people, and about knowing where it comes from.</p></li>
+      <li><h3>Two days, max fresh</h3><p>Picked up late Thursday night, kept on ice, sold Friday and Saturday. That's it. That's the secret.</p></li>
+      <li><h3>Community first</h3><p>Recipe help at the counter, a shared recipe book, fish parties, and a whole lot of love for our customers.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head rv"><h2>Coming to the shelf.</h2><p class="lede">Beyond the fish case, here's what we're hoping to bring in. Watch the weekly email for news.</p></div>
+    <ul class="shelf">
+      <li><h3>Heritage grits</h3><p>The perfect partner for a pound of shrimp.</p></li>
+      <li><h3>Local hot sauce</h3><p>Made right here in the mountains.</p></li>
+      <li><h3>House seafood rub</h3><p>Our own blend for fish, shrimp and everything in between.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv"><h2>Little shop, lots of heart.</h2><p class="lede">The case, the porch, the chalkboard and our market days. Tap any photo to see it big.</p></div>
+    <div class="gal">
+      <div class="ph rv" data-lb><img src="img/shop-front.jpg" alt="The teal Black Mountain Seafood shop with its SEAFOOD sign" loading="lazy"></div>
+      <div class="ph rv" data-lb><img src="img/chalkboard.jpg" alt="Chalkboard menu listing NC shrimp, scallops, oysters and fish" loading="lazy"></div>
+      <div class="ph rv" data-lb><img src="img/counter.jpg" alt="Behind the counter at the shop" loading="lazy"></div>
+      <div class="ph rv" data-lb><img src="img/m-couple.jpg" alt="Carolyn and Bruce at their market booth" loading="lazy"></div>
+      <div class="ph rv" data-lb><img src="img/inside-board.jpg" alt="Inside the shop: chalkboard and ice-filled coolers under bunting" loading="lazy"></div>
+      <div class="ph rv" data-lb><img src="img/porch.jpg" alt="The shop porch with a life ring and Adirondack chairs" loading="lazy"></div>
+      <div class="ph rv" data-lb><img src="img/m-banner.jpg" alt="Black Mountain Seafood banner with an American flag" loading="lazy"></div>
+      <div class="ph rv" data-lb><img src="img/shells2.jpg" alt="Shells, flowers and a business card arranged on lace" loading="lazy"></div>
+      <div class="ph rv" data-lb><img src="img/m-sign.jpg" alt="Market booth with a chalkboard reading Seafood, Fresh Fish, NC Shrimp" loading="lazy"></div>
+      <div class="ph rv" data-lb><img src="img/sold-out.jpg" alt="A Sold Out sign hanging on the shop door" loading="lazy"></div>
+      <div class="ph rv" data-lb><img src="img/community.jpg" alt="A framed group photo signed by customers" loading="lazy"></div>
+      <div class="ph rv" data-lb><img src="img/m-autumn.jpg" alt="Autumn market display with pumpkins and shells" loading="lazy"></div>
+      <div class="ph rv" data-lb><img src="img/lifering.jpg" alt="Life ring and decor inside the shop" loading="lazy"></div>
+      <div class="ph rv" data-lb><img src="img/shop-wide.jpg" alt="The shop seen from the parking lot" loading="lazy"></div>
+      <div class="ph rv" data-lb><img src="img/m-booth2.jpg" alt="Market day under the tent" loading="lazy"></div>
+      <div class="ph rv" data-lb><img src="img/candle.jpg" alt="A candle glowing on the counter under string lights" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="press">
+      <a class="pc rv" href="https://www.blackmountainnews.com/story/news/2026/07/24/black-mountain-seafoods-new-owners-want-to-carry-on-legacy/91020029007/" target="_blank" rel="noopener"><small>In the news</small><small>Black Mountain News</small><h3>Black Mountain Seafood's new owners want to &lsquo;carry on&rsquo; legacy</h3><p>Karrigan Monk wrote about our reopening, our ocean roots and how the weekly email works.</p><p class="go">Read the article</p></a>
+      <a class="pc rv" data-d=".1" href="https://www.explorethevalley.org/" target="_blank" rel="noopener"><small>Community</small><h3>Proud member of the Black Mountain Swannanoa Chamber of Commerce</h3><p>We're part of the valley's local business family. See what else is happening in town.</p><p class="go">Explore the valley</p></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="floor">
+  <svg class="kelp" style="left:4%;height:180px" viewBox="0 0 40 200" aria-hidden="true"><path d="M20 200C5 160 35 130 18 90S30 30 22 0" stroke="#3d7f73" stroke-width="7" fill="none" stroke-linecap="round"/></svg>
+  <svg class="kelp" style="right:6%;height:160px;animation-delay:-4s" viewBox="0 0 40 200" aria-hidden="true"><path d="M20 200C5 160 35 130 18 90S30 30 22 0" stroke="#3d7f73" stroke-width="7" fill="none" stroke-linecap="round"/></svg>
+  <div class="wrap">
+    <div class="floor-grid">
+      <div>
+        <a class="brand" href="index.html"><img src="img/logo.jpg" alt=""><b>Black Mountain Seafood</b></a>
+        <p class="tag">Give thanks for fish.</p>
+        <p>Fresh Atlantic catch and more, every Friday and Saturday in Black Mountain, NC.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/blackmountainseafood/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 2.2c-2.7 0-3 0-4 .1-3.6.2-5.5 2-5.7 5.7-.1 1-.1 1.3-.1 4s0 3 .1 4c.2 3.6 2 5.5 5.7 5.7 1 .1 1.3.1 4 .1s3 0 4-.1c3.6-.2 5.5-2 5.7-5.7.1-1 .1-1.3.1-4s0-3-.1-4c-.2-3.6-2-5.5-5.7-5.7-1-.1-1.3-.1-4-.1z"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61583040272928" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8V6.5c0-.7.5-1 1-1h2V2h-3c-3 0-4 2-4 4.3V8H8v3.6h2V22h4V11.6h2.8L17 8z"/></svg></a>
+          <a href="mailto:hello@blackmountainseafood.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2.3V17h16V7.3l-8 5.4z"/></svg></a>
+          <a href="tel:+18284171057" aria-label="Call"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg></a>
+        </div>
+      </div>
+      <div><h4>Hours</h4><ul><li>Friday 10am to 6pm</li><li>Saturday 10am to 1pm</li><li><span data-status></span></li></ul></div>
+      <div><h4>Find us</h4><ul><li>213 E State St</li><li>Black Mountain, NC 28711</li><li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Black+Mountain+Seafood,+213+E+State+St,+Black+Mountain,+NC+28711" target="_blank" rel="noopener">Get directions</a></li><li><a href="tel:+18284171057">(828) 417-1057</a></li><li><a href="mailto:hello@blackmountainseafood.com">hello@blackmountainseafood.com</a></li></ul></div>
+      <div><h4>Explore</h4><ul><li><a href="visit.html">Visit and FAQ</a></li><li><a href="recipes.html">Recipe box</a></li><li><a href="story.html">Our story</a></li><li><a href="index.html#weekly">Weekly email</a></li><li><a href="https://www.blackmountainnews.com/story/news/2026/07/24/black-mountain-seafoods-new-owners-want-to-carry-on-legacy/91020029007/" target="_blank" rel="noopener">In the news</a></li><li><a href="https://www.explorethevalley.org/" target="_blank" rel="noopener">Chamber member</a></li></ul></div>
+    </div>
+    <div class="floor-bottom"><span>&copy; <span data-year>2026</span> Black Mountain Seafood</span><span>Site by <a href="https://jrns-hub.github.io/bearly-technical/" target="_blank" rel="noopener">Bearly Technical</a></span></div>
+    <p class="credits">Species illustrations: NOAA Fisheries and U.S. Fish &amp; Wildlife Service (public domain); branzino by Almae scientia (CC BY 4.0); Argentine red shrimp photo by Assianir (CC BY-SA 3.0), via Wikimedia Commons.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="site.js?v=9"></script>
+<script>
+if(window.gsap&&!document.documentElement.classList.contains("reduced"))gsap.to("#tl .tl-line i",{height:"100%",ease:"none",scrollTrigger:{trigger:"#tl",start:"top 70%",end:"bottom 60%",scrub:true}});
+else{var l=document.querySelector("#tl .tl-line i");if(l)l.style.height="100%";}
+</script>
+</body>
+</html>

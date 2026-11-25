@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Recipe Box | Black Mountain Seafood</title>
+<meta name="description" content="Seafood recipes from Black Mountain Seafood: Friday fish fry, shrimp and grits, brown butter scallops, oysters, gumbo and more.">
+<link rel="icon" href="img/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=9">
+<style>
+.phero{padding:clamp(130px,16vw,170px) 0 clamp(50px,7vw,80px);text-align:center}
+.phero h1{font-size:clamp(46px,9vw,112px);margin:0 auto 18px;max-width:14ch}
+.phero .lede{margin-inline:auto}
+.card-stack{position:relative;width:220px;height:150px;margin:38px auto 0}
+.card-stack span{position:absolute;inset:0;border-radius:14px;background:#fff;color:var(--ink);box-shadow:0 22px 40px -20px rgba(2,18,32,.6);display:grid;place-items:center;font:400 22px/1.1 var(--display);background-image:repeating-linear-gradient(180deg,transparent 0 27px,rgba(31,143,192,.16) 27px 28px)}
+.card-stack span:nth-child(1){transform:rotate(-8deg) translate(-30px,6px)}
+.card-stack span:nth-child(2){transform:rotate(6deg) translate(26px,0)}
+.card-stack span:nth-child(3){transform:rotate(-1deg)}
+.phero .stat{margin-top:30px}
+
+.filters{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:40px}
+.filters button{font:700 15px/1 var(--body);padding:12px 20px;border-radius:999px;border:0;background:var(--shell);color:var(--ink);cursor:pointer;box-shadow:inset 0 0 0 1.5px var(--line);transition:.25s}
+.filters button[aria-pressed=true]{background:var(--ink);color:#fff;box-shadow:none}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(270px,100%),1fr));gap:26px}
+.rc{background:var(--shell);color:var(--ink);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);cursor:pointer;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;text-align:left;border:0;font:inherit;display:flex;flex-direction:column}
+.rc:hover{transform:translateY(-8px) rotate(-.6deg);box-shadow:0 34px 60px -30px rgba(2,18,32,.8)}
+.rc .ph{border-radius:0;aspect-ratio:4/3}
+.rc .body{padding:20px 22px 24px;display:grid;gap:8px;flex:1}
+.rc h3{font-size:26px}
+.rc p{color:var(--ink-soft);font-size:15px}
+.rc .meta{display:flex;gap:14px;font:600 13px/1 var(--body);color:var(--ink-soft);margin-top:auto;padding-top:8px}
+.rc.hidden{display:none}
+
+.modal{position:fixed;inset:0;z-index:250;background:rgba(1,8,16,.72);display:grid;place-items:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s}
+.modal.on{opacity:1;pointer-events:auto}
+.sheet{background:var(--shell);color:var(--ink);border-radius:26px;max-width:960px;width:100%;max-height:92vh;overflow:auto;display:grid;grid-template-columns:.9fr 1.1fr;transform:translateY(30px) scale(.97);transition:transform .4s cubic-bezier(.2,.8,.2,1);overscroll-behavior:contain}
+.modal.on .sheet{transform:none}
+.sheet .ph{border-radius:0;position:sticky;top:0;align-self:start;height:92vh}
+.sheet .ph img{position:absolute;inset:0}
+.sheet .in{padding:clamp(22px,4vw,40px);display:grid;gap:16px;align-content:start}
+.sheet h2{font-size:clamp(32px,4vw,46px)}
+.sheet h3{font:700 15px/1.2 var(--body)}
+.sheet h3 small{font-weight:500;color:var(--ink-soft)}
+.m-meta{font-weight:600;font-size:14px;color:var(--ink-soft)}
+.sheet ul,.sheet ol{padding-left:20px;display:grid;gap:7px}
+.sheet ul{list-style:none;padding:0}
+.sheet ul li{display:flex;gap:10px;padding:8px 12px;border-radius:10px;background:#fff;cursor:pointer;user-select:none}
+.sheet ul li::before{content:"";width:18px;height:18px;border-radius:5px;border:2px solid var(--line);flex:none;margin-top:3px}
+.sheet ul li.got{opacity:.5;text-decoration:line-through}
+.sheet ul li.got::before{background:var(--ink);border-color:var(--ink)}
+.serv{display:flex;align-items:center;gap:10px;font-weight:700}
+.serv button,.sheet .x{display:grid;place-items:center;border-radius:50%;border:0;background:var(--ink);color:#fff;cursor:pointer}
+.serv button{width:38px;height:38px}
+.serv svg,.sheet .x svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.serv output{min-width:26px;text-align:center;font:400 22px/1 var(--display)}
+.sheet .x{position:sticky;top:14px;justify-self:end;width:44px;height:44px;margin:14px 14px -58px 0;z-index:2;grid-column:1/-1}
+.sheet .tools{display:flex;gap:10px;flex-wrap:wrap}
+.tip{background:var(--pale);border-radius:14px;padding:14px 16px;font-size:15px}
+@media (max-width:760px){.sheet{grid-template-columns:1fr}.sheet .ph{aspect-ratio:16/10;height:auto;position:relative}}
+
+.sec-head p{max-width:60ch}
+.tips{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,40px)}
+.tips li{border-top:1px solid currentColor;padding-top:20px}
+.tips h3{font-size:clamp(24px,2.4vw,30px);margin-bottom:10px}
+.tips p{max-width:40ch;opacity:.9}
+.f101 .ask{margin-top:36px;max-width:62ch}
+.f101 .ask a{font-weight:700}
+@media (max-width:860px){.tips{grid-template-columns:1fr}}
+
+.book{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.book .ph{aspect-ratio:4/5}
+.book h2{font-size:clamp(36px,5vw,58px);margin-bottom:18px}
+.floor .credits{margin-top:14px}
+.book .acts{margin-top:24px;display:flex;gap:10px;flex-wrap:wrap}
+@media (max-width:860px){.book{grid-template-columns:1fr}}
+
+@media print{
+  body>*:not(.modal){display:none!important}
+  .modal{position:static;opacity:1;background:none;display:block}
+  .sheet{max-height:none;box-shadow:none;grid-template-columns:1fr;transform:none}
+  .sheet .ph,.sheet .x,.sheet .tools,.serv button{display:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="brand" href="index.html" aria-label="Black Mountain Seafood home"><img src="img/logo.jpg" alt=""><b>Black Mountain Seafood</b></a>
+    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="visit.html">Visit</a>
+      <a href="recipes.html" aria-current="page">Recipes</a>
+      <a href="story.html">Our Story</a>
+      <a class="btn btn-buoy" href="index.html#weekly">Get the weekly catch</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="phero">
+  <div class="wrap">
+    <h1 class="split">Cook it like you caught it.</h1>
+    <p class="lede">Whenever someone asks &ldquo;what's your best fish fry recipe?&rdquo; we send them here. Tap a card for the full recipe, check off ingredients as you shop, and scale it for your crew.</p>
+    <div class="card-stack" aria-hidden="true"><span></span><span></span><span>Fish Fry</span></div>
+    <p class="stat"><span data-status></span></p>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:40px">
+  <div class="wrap">
+    <div class="filters" role="group" aria-label="Filter recipes">
+      <button aria-pressed="true" data-f="all">All</button>
+      <button aria-pressed="false" data-f="fried">Fried</button>
+      <button aria-pressed="false" data-f="seared">Seared and grilled</button>
+      <button aria-pressed="false" data-f="raw">Raw bar</button>
+      <button aria-pressed="false" data-f="bowl">Bowls and pasta</button>
+      <button aria-pressed="false" data-f="quick">Under 30 min</button>
+    </div>
+    <div class="rgrid" id="grid"></div>
+  </div>
+</section>
+
+<section class="sec f101">
+  <div class="wrap">
+    <div class="sec-head"><h2>Three things that make any recipe better.</h2></div>
+    <ul class="tips">
+      <li><h3>Cook it soon</h3><p>Fresh fish is best within a day or two. Keep it in the coldest part of your fridge, ideally on ice, until you're ready to cook.</p></li>
+      <li><h3>Pat it dry</h3><p>Moisture is the enemy of a golden crust. Pat fillets and scallops dry with a paper towel right before they hit the pan.</p></li>
+      <li><h3>Don't overcook</h3><p>Fish keeps cooking off the heat. Pull it the moment it flakes or turns opaque, and shrimp the second they curl into a C.</p></li>
+    </ul>
+    <p class="ask">Not sure what to do with this week's catch? <a href="mailto:hello@blackmountainseafood.com?subject=Recipe%20question">Email us</a>, call <a href="tel:+18284171057">(828) 417-1057</a> or just ask at the counter. We love helping figure out dinner.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap book">
+    <div class="ph"><img src="img/recipe-table2.jpg" alt="Lemons, flowers and recipe notes on a table in the shop" loading="lazy" data-speed=".3"></div>
+    <div>
+      <h2>Got a favorite? Add it to the book.</h2>
+      <p class="lede">There's a recipe book in the shop where customers write down their favorite seafood recipes. Bring yours by on a Friday or Saturday, or email it over, and it might end up on this page too.</p>
+      <p class="acts"><a class="btn btn-buoy" href="mailto:hello@blackmountainseafood.com?subject=My%20recipe%20for%20the%20book">Email us your recipe</a><a class="btn btn-ink" href="tel:+18284171057">Call us (828) 417-1057</a><a class="btn btn-ghost" href="visit.html">Visit the shop</a></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
+  <div class="sheet" data-lenis-prevent>
+    <button class="x" aria-label="Close recipe"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="ph"><img id="m-img" alt=""></div>
+    <div class="in">
+      <p class="m-meta" id="m-tag"></p>
+      <h2 id="m-title"></h2>
+      <p id="m-desc" style="color:var(--ink-soft)"></p>
+      <div class="serv"><span>Serves</span><button type="button" data-s="-1" aria-label="Fewer servings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12"/></svg></button><output id="m-serv"></output><button type="button" data-s="1" aria-label="More servings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12M12 6v12"/></svg></button></div>
+      <h3>Ingredients <small>(tap to check off)</small></h3>
+      <ul id="m-ing"></ul>
+      <h3>Steps</h3>
+      <ol id="m-steps"></ol>
+      <p class="tip" id="m-tip"></p>
+      <div class="tools"><button class="btn btn-ink" type="button" onclick="print()">Print recipe</button><a class="btn btn-ghost" id="m-share" href="#">Email to a friend</a></div>
+    </div>
+  </div>
+</div>
+
+<footer class="floor">
+  <svg class="kelp" style="left:4%;height:180px" viewBox="0 0 40 200" aria-hidden="true"><path d="M20 200C5 160 35 130 18 90S30 30 22 0" stroke="#3d7f73" stroke-width="7" fill="none" stroke-linecap="round"/></svg>
+  <svg class="kelp" style="right:6%;height:160px;animation-delay:-4s" viewBox="0 0 40 200" aria-hidden="true"><path d="M20 200C5 160 35 130 18 90S30 30 22 0" stroke="#3d7f73" stroke-width="7" fill="none" stroke-linecap="round"/></svg>
+  <div class="wrap">
+    <div class="floor-grid">
+      <div>
+        <a class="brand" href="index.html"><img src="img/logo.jpg" alt=""><b>Black Mountain Seafood</b></a>
+        <p class="tag">Give thanks for fish.</p>
+        <p>Fresh Atlantic catch and more, every Friday and Saturday in Black Mountain, NC.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/blackmountainseafood/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 2.2c-2.7 0-3 0-4 .1-3.6.2-5.5 2-5.7 5.7-.1 1-.1 1.3-.1 4s0 3 .1 4c.2 3.6 2 5.5 5.7 5.7 1 .1 1.3.1 4 .1s3 0 4-.1c3.6-.2 5.5-2 5.7-5.7.1-1 .1-1.3.1-4s0-3-.1-4c-.2-3.6-2-5.5-5.7-5.7-1-.1-1.3-.1-4-.1z"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61583040272928" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8V6.5c0-.7.5-1 1-1h2V2h-3c-3 0-4 2-4 4.3V8H8v3.6h2V22h4V11.6h2.8L17 8z"/></svg></a>
+          <a href="mailto:hello@blackmountainseafood.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2.3V17h16V7.3l-8 5.4z"/></svg></a>
+          <a href="tel:+18284171057" aria-label="Call"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></a>
+        </div>
+      </div>
+      <div><h4>Hours</h4><ul><li>Friday 10am to 6pm</li><li>Saturday 10am to 1pm</li><li><span data-status></span></li></ul></div>
+      <div><h4>Find us</h4><ul><li>213 E State St</li><li>Black Mountain, NC 28711</li><li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Black+Mountain+Seafood,+213+E+State+St,+Black+Mountain,+NC+28711" target="_blank" rel="noopener">Get directions</a></li><li><a href="tel:+18284171057">(828) 417-1057</a></li><li><a href="mailto:hello@blackmountainseafood.com">hello@blackmountainseafood.com</a></li></ul></div>
+      <div><h4>Explore</h4><ul><li><a href="visit.html">Visit and FAQ</a></li><li><a href="recipes.html">Recipe box</a></li><li><a href="story.html">Our story</a></li><li><a href="index.html#weekly">Weekly email</a></li><li><a href="https://www.blackmountainnews.com/story/news/2026/07/24/black-mountain-seafoods-new-owners-want-to-carry-on-legacy/91020029007/" target="_blank" rel="noopener">In the news</a></li><li><a href="https://www.explorethevalley.org/" target="_blank" rel="noopener">Chamber member</a></li></ul></div>
+    </div>
+    <div class="floor-bottom"><span>&copy; <span data-year>2026</span> Black Mountain Seafood</span><span>Site by <a href="https://jrns-hub.github.io/bearly-technical/" target="_blank" rel="noopener">Bearly Technical</a></span></div>
+    <p class="credits">Species illustrations: NOAA Fisheries and U.S. Fish &amp; Wildlife Service (public domain); branzino by Almae scientia (CC BY 4.0); Argentine red shrimp photo by Assianir (CC BY-SA 3.0), via Wikimedia Commons.</p>
+  </div>
+</footer>
+
+<script>
+/* Recipes live here. To add one: copy a block, give it a new id, point img at a photo in img/. qty is per the base "serves". */
+var RECIPES = [
+ {id:"fish-fry",title:"Friday Fish Fry",img:"f-fish-fry.jpg",tags:["fried"],time:"35 min",serves:4,
+  desc:"Crispy cornmeal-crusted fillets. Works with flounder, whiting, catfish or any mild white fish from the case.",
+  ing:[[2,"lb","mild white fish fillets"],[1,"cup","buttermilk"],[1,"cup","fine cornmeal"],[0.5,"cup","all-purpose flour"],[1,"tsp","salt"],[1,"tsp","paprika"],[0.5,"tsp","garlic powder"],[0.25,"tsp","cayenne"],[null,"","Neutral oil for frying"],[null,"","Lemon wedges and tartar sauce"]],
+  steps:["Cut fish into hand-sized pieces, pat dry and soak in buttermilk for 15 minutes.","Whisk cornmeal, flour and spices in a shallow dish.","Heat 1 inch of oil to 350&deg;F in a heavy skillet.","Lift fish from the buttermilk, let it drip, then press into the cornmeal mix on both sides.","Fry in batches 2 to 3 minutes per side until deep golden. Drain on a rack and salt right away."],
+  tip:"Don't crowd the pan. Too many pieces drop the oil temperature and you get greasy fish instead of crispy fish."},
+ {id:"shrimp-grits",title:"Shrimp and Grits",img:"f-shrimp-grits.jpg",tags:["bowl","quick"],time:"30 min",serves:4,
+  desc:"Creamy grits, garlicky shrimp and a little bacon. A southern classic that's faster than you think.",
+  ing:[[1,"lb","shrimp, peeled and deveined"],[1,"cup","stone-ground grits"],[4,"cups","water or stock"],[1,"cup","shredded sharp cheddar"],[2,"Tbsp","butter"],[4,"slices","bacon, chopped"],[3,"cloves","garlic, minced"],[1,"","lemon, juiced"],[3,"","green onions, sliced"]],
+  steps:["Bring water or stock to a boil, whisk in grits, then simmer low 20 to 25 minutes, stirring often.","Stir butter and cheddar into the grits. Season with salt and pepper and keep warm.","Cook bacon in a skillet until crisp. Remove and leave 1 Tbsp fat in the pan.","Add shrimp and garlic, cook 2 minutes per side just until pink, then squeeze in lemon.","Spoon grits into bowls, top with shrimp, bacon and green onions."],
+  tip:"Shrimp go from perfect to rubbery fast. Pull them as soon as they curl into a C shape."},
+ {id:"scallops",title:"Brown Butter Scallops",img:"f-scallops3.jpg",tags:["seared","quick"],time:"15 min",serves:2,
+  desc:"A hot pan and two minutes a side. Restaurant-level dinner on a weeknight.",
+  ing:[[0.75,"lb","sea scallops"],[1,"Tbsp","neutral oil"],[3,"Tbsp","butter"],[2,"cloves","garlic, smashed"],[4,"","sage or thyme sprigs"],[0.5,"","lemon"],[null,"","Flaky salt"]],
+  steps:["Pull the side muscle off each scallop and pat them very dry. Season with salt.","Heat oil in a skillet over high heat until it shimmers.","Lay scallops in and do not touch them for 2 minutes, until a deep golden crust forms.","Flip, add butter, garlic and herbs. Spoon the foaming butter over the scallops for 1 to 2 minutes.","Finish with a squeeze of lemon and flaky salt."],
+  tip:"If they stick, they're not ready to flip. A good crust releases on its own."},
+ {id:"oysters",title:"Oysters and Mignonette",img:"f-oysters.jpg",tags:["raw","quick"],time:"20 min",serves:4,
+  desc:"Briny, bright and no cooking. The easiest way to feel like you're at the coast.",
+  ing:[[24,"","fresh oysters"],[0.5,"cup","red wine vinegar"],[1,"","small shallot, finely minced"],[1,"tsp","cracked black pepper"],[null,"","Crushed ice and lemon wedges"]],
+  steps:["Stir vinegar, shallot and pepper together and let it sit at least 10 minutes.","Scrub oyster shells under cold water.","Hold each oyster cup-side down in a towel, work an oyster knife into the hinge and twist.","Slide the knife under the top shell to cut it free, then loosen the oyster from the bottom shell.","Serve on crushed ice with the mignonette and lemon."],
+  tip:"Keep oysters cold and cupped side down until you shuck. Toss any that are open and won't close when tapped."},
+ {id:"salmon",title:"Blackened Salmon",img:"f-salmon.jpg",tags:["seared","quick"],time:"20 min",serves:4,
+  desc:"Smoky, spicy crust with a tender middle. Great over a salad or with rice.",
+  ing:[[4,"","salmon fillets (6 oz each)"],[2,"tsp","smoked paprika"],[1,"tsp","garlic powder"],[1,"tsp","onion powder"],[1,"tsp","dried thyme"],[0.5,"tsp","cayenne"],[1,"tsp","salt"],[2,"Tbsp","butter, melted"]],
+  steps:["Mix all the spices and salt.","Brush salmon with melted butter and coat the tops heavily with spice mix.","Heat a cast-iron skillet over medium-high until very hot.","Cook spice-side down 3 minutes, flip and cook 3 to 4 more until it just flakes.","Rest 2 minutes and serve with lemon."],
+  tip:"Open a window. Blackening is supposed to smoke a little, that's the flavor."},
+ {id:"gumbo",title:"Seafood Gumbo",img:"f-gumbo.jpg",tags:["bowl"],time:"1 hr 30 min",serves:6,
+  desc:"Dark roux, the holy trinity and whatever's freshest in the case.",
+  ing:[[0.5,"cup","oil"],[0.5,"cup","flour"],[1,"","onion, diced"],[1,"","green bell pepper, diced"],[3,"ribs","celery, diced"],[4,"cloves","garlic"],[6,"cups","seafood or chicken stock"],[0.5,"lb","andouille, sliced"],[1,"lb","shrimp"],[1,"lb","white fish or crab"],[2,"","bay leaves"],[1,"Tbsp","Cajun seasoning"],[null,"","Cooked rice and filé or green onion"]],
+  steps:["Stir oil and flour in a heavy pot over medium heat, constantly, until it's the color of milk chocolate (20 to 30 minutes).","Add onion, pepper and celery, cook 5 minutes, then garlic.","Slowly whisk in stock. Add sausage, bay leaves and seasoning. Simmer 45 minutes.","Add fish and shrimp in the last 5 minutes so they stay tender.","Serve over rice."],
+  tip:"If you see black flecks in the roux, it burned. Start over, it's worth it."},
+ {id:"grilled-shrimp",title:"Grilled Garlic Shrimp",img:"f-grilled-shrimp.jpg",tags:["seared","quick"],time:"20 min",serves:4,
+  desc:"Big shrimp, hot grill, lots of garlic. Backyard dinner done right.",
+  ing:[[1.5,"lb","large shrimp, shell-on or peeled"],[3,"Tbsp","olive oil"],[4,"cloves","garlic, grated"],[1,"tsp","smoked paprika"],[0.5,"tsp","red pepper flakes"],[1,"","lemon, zested and juiced"],[2,"Tbsp","parsley, chopped"]],
+  steps:["Toss shrimp with oil, garlic, paprika, pepper flakes, lemon zest and salt. Rest 10 minutes.","Thread onto skewers or use a grill basket.","Grill over high heat 2 minutes per side until pink and lightly charred.","Finish with lemon juice and parsley."],
+  tip:"Shell-on shrimp stay juicier on the grill and the shells soak up all that garlic."},
+ {id:"crab-cakes",title:"Crab Cakes",img:"f-crabcakes.jpg",pos:"50% 82%",tags:["fried"],time:"40 min",serves:4,
+  desc:"Mostly crab, barely any filler. Golden outside, sweet inside.",
+  ing:[[1,"lb","lump crab meat"],[1,"","egg"],[3,"Tbsp","mayonnaise"],[1,"tsp","Dijon mustard"],[1,"tsp","Old Bay"],[1,"tsp","Worcestershire"],[0.5,"cup","crushed saltines or panko"],[2,"Tbsp","butter"]],
+  steps:["Whisk egg, mayo, mustard, Old Bay and Worcestershire.","Gently fold in crab and crumbs without breaking up the lumps.","Shape into 8 cakes and chill 20 minutes so they hold together.","Brown in butter over medium heat, 3 to 4 minutes per side.","Serve with lemon and remoulade."],
+  tip:"The chill step is what keeps them from falling apart. Don't skip it."},
+ {id:"scampi",title:"Shrimp Scampi Pasta",img:"f-shrimp-pasta.jpg",tags:["bowl","quick"],time:"25 min",serves:4,
+  desc:"Butter, garlic, white wine, lemon. Ready before the pasta water cools.",
+  ing:[[1,"lb","linguine"],[1,"lb","shrimp, peeled"],[4,"Tbsp","butter"],[2,"Tbsp","olive oil"],[5,"cloves","garlic, sliced"],[0.5,"cup","dry white wine"],[1,"","lemon"],[0.25,"cup","parsley"],[0.5,"tsp","red pepper flakes"]],
+  steps:["Boil pasta in well-salted water. Save a cup of pasta water.","Warm oil and half the butter, add garlic and pepper flakes for 1 minute.","Add shrimp, cook 1 minute per side, then pour in wine and simmer 2 minutes.","Toss in pasta, remaining butter, lemon juice and a splash of pasta water until glossy.","Finish with parsley and lemon zest."],
+  tip:"Pasta water is the secret. The starch turns butter and wine into a silky sauce."},
+ {id:"tuna",title:"Seared Tuna Steaks",img:"f-tuna.jpg",tags:["seared","quick"],time:"15 min",serves:2,
+  desc:"Crusty outside, rare and tender inside. Slice it thin and show off.",
+  ing:[[2,"","tuna steaks (1 inch thick)"],[2,"Tbsp","soy sauce"],[1,"tsp","sesame oil"],[1,"Tbsp","sesame seeds"],[1,"Tbsp","neutral oil"],[null,"","Black pepper and flaky salt"]],
+  steps:["Brush tuna with soy and sesame oil, then press pepper and sesame seeds onto all sides.","Heat oil in a skillet until smoking hot.","Sear 60 to 90 seconds per side for rare.","Rest 2 minutes, then slice against the grain."],
+  tip:"Tuna is best rare to medium-rare. Cooked all the way through, it turns dry and chalky."}
+];
+(function(){
+  var grid=document.getElementById("grid"),M=document.getElementById("modal"),cur,serv,opener;
+  var LBL={fried:"Fried",seared:"Seared and grilled",raw:"Raw bar",bowl:"Bowls and pasta",quick:"Under 30 min"};
+  grid.innerHTML=RECIPES.map(function(r){return '<button class="rc rv" id="'+r.id+'" data-tags="'+r.tags.join(" ")+'"><div class="ph"><img src="img/'+r.img+'" style="object-position:'+(r.pos||"50% 50%")+'" alt="'+r.title+'" loading="lazy"></div><div class="body"><h3>'+r.title+'</h3><p>'+r.desc+'</p><div class="meta"><span>'+r.time+'</span><span>Serves '+r.serves+'</span></div></div></button>';}).join("");
+  function frac(n){if(n==null)return"";var w=Math.floor(n+1e-9),f=n-w,F=[[.125,"&#8539;"],[.25,"&frac14;"],[.333,"&#8531;"],[.5,"&frac12;"],[.667,"&#8532;"],[.75,"&frac34;"]],best=null;
+    if(f<.07)return String(w||"");if(f>.93)return String(w+1);F.forEach(function(x){if(!best||Math.abs(x[0]-f)<Math.abs(best[0]-f))best=x;});return (w?w+" ":"")+best[1];}
+  function draw(){var k=serv/cur.serves;document.getElementById("m-serv").textContent=serv;
+    document.getElementById("m-ing").innerHTML=cur.ing.map(function(i){var q=i[0]==null?"":frac(i[0]*k);return "<li><span><b>"+q+(i[1]?" "+i[1]:"")+"</b> "+i[2]+"</span></li>";}).join("");}
+  function open(r,btn){cur=r;serv=r.serves;opener=btn;
+    document.getElementById("m-img").src="img/"+r.img;document.getElementById("m-img").alt=r.title;document.getElementById("m-img").style.objectPosition=r.pos||"";
+    document.getElementById("m-tag").textContent=r.tags.map(function(t){return LBL[t];}).concat(r.time).join(", ");
+    document.getElementById("m-title").textContent=r.title;document.getElementById("m-desc").textContent=r.desc;
+    document.getElementById("m-steps").innerHTML=r.steps.map(function(s){return"<li>"+s+"</li>";}).join("");
+    document.getElementById("m-tip").innerHTML="<b>Counter tip:</b> "+r.tip;
+    document.getElementById("m-share").href="mailto:?subject="+encodeURIComponent(r.title+" from Black Mountain Seafood")+"&body="+encodeURIComponent("Thought you'd like this one: "+location.href.split("#")[0]+"#"+r.id);
+    draw();M.classList.add("on");document.documentElement.style.overflow="hidden";M.querySelector(".x").focus();history.replaceState(null,"","#"+r.id);}
+  function close(){M.classList.remove("on");document.documentElement.style.overflow="";history.replaceState(null,"",location.pathname);if(opener)opener.focus();}
+  grid.addEventListener("click",function(e){var b=e.target.closest(".rc");if(b)open(RECIPES.filter(function(r){return r.id===b.id;})[0],b);});
+  M.querySelector(".x").onclick=close;M.addEventListener("click",function(e){if(e.target===M)close();});
+  addEventListener("keydown",function(e){if(e.key==="Escape"&&M.classList.contains("on"))close();});
+  M.querySelectorAll("[data-s]").forEach(function(b){b.onclick=function(){serv=Math.max(1,Math.min(24,serv+ +b.dataset.s));draw();};});
+  document.getElementById("m-ing").addEventListener("click",function(e){var li=e.target.closest("li");if(li)li.classList.toggle("got");});
+  document.querySelectorAll(".filters button").forEach(function(b){b.onclick=function(){
+    document.querySelectorAll(".filters button").forEach(function(x){x.setAttribute("aria-pressed",x===b);});
+    grid.querySelectorAll(".rc").forEach(function(c){var on=b.dataset.f==="all"||c.dataset.tags.split(" ").indexOf(b.dataset.f)>-1;c.classList.toggle("hidden",!on);if(on&&window.gsap)gsap.fromTo(c,{opacity:0,y:20},{opacity:1,y:0,duration:.45});});
+    if(window.ScrollTrigger)ScrollTrigger.refresh();};});
+  var h=location.hash.slice(1),r=RECIPES.filter(function(x){return x.id===h;})[0];if(r)setTimeout(function(){open(r,document.getElementById(h));},400);
+  window.__frac=frac;
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="site.js?v=9"></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Visit | Black Mountain Seafood, 213 E State St</title>
+<meta name="description" content="Hours, directions and FAQ for Black Mountain Seafood. Open Friday 10am-6pm and Saturday 10am-1pm at 213 E State St, Black Mountain, NC.">
+<link rel="icon" href="img/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=9">
+<style>
+.vhero{padding:140px 0 clamp(60px,8vw,110px)}
+.vhero h1{font-size:clamp(46px,8vw,104px);margin:0 0 clamp(26px,4vw,40px);text-align:center}
+.board{max-width:880px;margin-inline:auto;background:var(--shell);color:var(--ink);border-radius:30px;padding:clamp(22px,4vw,44px);box-shadow:var(--shadow);display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+.sb-light{display:flex;align-items:center;gap:14px}
+.sb-light i{width:22px;height:22px;border-radius:50%;background:#9aa9b1;position:relative;flex:none}
+[data-state=open] .sb-light i{background:#2fb36b}
+[data-state=open] .sb-light i::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:3px solid #2fb36b;animation:ping 1.8s infinite}
+[data-state=soon] .sb-light i{background:#f2b51a}
+.sb-label{font:400 clamp(30px,4.4vw,52px)/1.05 var(--display)}
+.sb-sub{font-size:20px;font-weight:600;color:var(--ink-soft);margin:12px 0 4px}
+.sb-count{font:italic 500 19px/1.3 var(--body);color:var(--ink-soft)}
+.addr{border-left:2px dashed var(--line);padding-left:28px;display:grid;gap:14px}
+.addr b{font:400 24px/1.2 var(--display)}
+.addr .acts{display:flex;flex-wrap:wrap;gap:10px}
+@media (max-width:760px){.board{grid-template-columns:1fr}.addr{border-left:0;border-top:2px dashed var(--line);padding:24px 0 0}}
+
+.week7{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+.d7{border-radius:18px;padding:18px 12px;text-align:center;background:var(--shell);color:var(--ink);box-shadow:0 14px 30px -24px rgba(2,18,32,.7);position:relative}
+.d7 b{display:block;font:700 13px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+.d7 span{display:block;font:400 20px/1.2 var(--display);margin-top:10px}
+.d7.shut span{color:#6f8590;font-size:16px}
+.d7.wed span{font:600 15px/1.3 var(--body)}
+.d7.today{outline:3px solid var(--ink);outline-offset:3px}
+.d7.today::after{content:"Today";position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;font:700 11px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;padding:5px 9px;border-radius:999px}
+.closures{margin-top:22px;display:grid;gap:8px}
+.closures p{background:var(--shell);color:var(--ink);border-radius:14px;padding:12px 16px;font-weight:600}
+@media (max-width:760px){.week7{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:520px){
+  .week7{grid-template-columns:1fr;gap:8px}
+  .d7{display:flex;align-items:center;gap:14px;text-align:left;padding:14px 18px}
+  .d7 b{width:3.4em}
+  .d7 span{margin:0}
+  .d7.today::after{position:static;transform:none;margin-left:auto}
+}
+
+.find{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
+.find h2{font-size:clamp(36px,5vw,58px)}
+.find .pics{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.find .pics .ph{aspect-ratio:3/4}
+.find .pics .ph:first-child{grid-row:span 2;aspect-ratio:auto}
+.clues{list-style:none;display:grid;gap:14px;margin:22px 0 28px}
+.clues li{display:flex;gap:14px;align-items:center;font-weight:600}
+.clues svg{width:26px;height:26px;flex:none;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:860px){.find{grid-template-columns:1fr}}
+
+.mapwrap{border-radius:28px;overflow:hidden;box-shadow:var(--shadow);height:440px}
+.mapwrap iframe{width:100%;height:100%;border:0}
+@media (max-width:600px){.mapwrap{height:320px}}
+
+.mk{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.mk h2{font-size:clamp(36px,5vw,58px);margin-bottom:16px}
+.mk .ph{aspect-ratio:4/3}
+@media (max-width:860px){.mk{grid-template-columns:1fr}}
+
+.faq{max-width:820px;margin-inline:auto;display:grid;gap:12px}
+.faq details{background:var(--shell);color:var(--ink);border-radius:18px;box-shadow:0 14px 30px -26px rgba(2,18,32,.7);overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:22px 26px;font:400 21px/1.3 var(--display);display:flex;justify-content:space-between;gap:16px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:400 30px/1 var(--body);color:var(--ink-soft);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .a{padding:0 26px 24px;color:var(--ink-soft);max-width:68ch}
+.faq .a a{color:var(--ink);font-weight:700}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="brand" href="index.html" aria-label="Black Mountain Seafood home"><img src="img/logo.jpg" alt=""><b>Black Mountain Seafood</b></a>
+    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="visit.html" aria-current="page">Visit</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="story.html">Our Story</a>
+      <a class="btn btn-buoy" href="index.html#weekly">Get the weekly catch</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="vhero">
+  <div class="wrap">
+    <h1 class="split">Are we open right now?</h1>
+    <div class="board" data-status-big data-state="closed" aria-live="polite">
+      <div>
+        <div class="sb-light"><i></i><span class="sb-label">Checking&hellip;</span></div>
+        <p class="sb-sub">&nbsp;</p>
+        <p class="sb-count">&nbsp;</p>
+      </div>
+      <div class="addr">
+        <b>213 E State St<br>Black Mountain, NC 28711</b>
+        <div class="acts">
+          <a class="btn btn-buoy" href="https://www.google.com/maps/dir/?api=1&amp;destination=Black+Mountain+Seafood,+213+E+State+St,+Black+Mountain,+NC+28711" target="_blank" rel="noopener">Drive there now</a>
+          <a class="btn btn-ink" href="tel:+18284171057">Call (828) 417-1057</a>
+          <a class="btn btn-ghost" href="mailto:hello@blackmountainseafood.com?subject=Question%20for%20Black%20Mountain%20Seafood">Email us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:40px">
+  <div class="wrap">
+    <div class="sec-head"><h2>Two days a week, on purpose.</h2><p class="lede">We only open Friday and Saturday so everything in the case is as fresh as possible.</p></div>
+    <div class="week7">
+      <div class="d7 shut" data-day="0"><b>Sun</b><span>Closed</span></div>
+      <div class="d7 shut" data-day="1"><b>Mon</b><span>Closed</span></div>
+      <div class="d7 shut" data-day="2"><b>Tue</b><span>Closed</span></div>
+      <div class="d7 wed" data-day="3"><b>Wed</b><span>Catch list email</span></div>
+      <div class="d7 shut" data-day="4"><b>Thu</b><span>Closed</span></div>
+      <div class="d7" data-day="5"><b>Fri</b><span>10am&ndash;6pm</span></div>
+      <div class="d7" data-day="6"><b>Sat</b><span>10am&ndash;1pm</span></div>
+    </div>
+    <div class="closures" id="closures"></div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap find">
+    <div class="pics">
+      <div class="ph" data-lb><img src="img/shop-front.jpg" alt="The small teal shop with a SEAFOOD sign above the door" loading="lazy"></div>
+      <div class="ph" data-lb><img src="img/porch2.jpg" alt="Blue Adirondack chairs on the shop porch" loading="lazy"></div>
+      <div class="ph" data-lb><img src="img/porch.jpg" alt="Porch with an orange life ring by the door" loading="lazy"></div>
+    </div>
+    <div>
+      <h2>Look for the little teal shop.</h2>
+      <ul class="clues">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>213 E State St, right in Black Mountain</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v10h16V10"/><path d="M3 10l2-6h14l2 6z"/><path d="M10 20v-6h4v6"/></svg>A small teal building with a SEAFOOD sign</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.5"/><path d="M12 3.5v5M12 15.5v5M3.5 12h5M15.5 12h5"/></svg>An orange life ring by the door</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l3 9h8"/><path d="M5 13h14"/><path d="M7 13l-2 7M17 13l2 7"/></svg>Blue Adirondack chairs on the porch</li>
+      </ul>
+      <a class="btn btn-buoy" href="https://www.google.com/maps/dir/?api=1&amp;destination=Black+Mountain+Seafood,+213+E+State+St,+Black+Mountain,+NC+28711" target="_blank" rel="noopener">Open directions</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap"><div class="mapwrap"><iframe title="Map to Black Mountain Seafood, 213 E State St" loading="lazy" src="https://maps.google.com/maps?q=213+E+State+St,+Black+Mountain,+NC+28711&amp;z=16&amp;output=embed"></iframe></div></div>
+</section>
+
+<section class="sec">
+  <div class="wrap mk">
+    <div class="ph"><img src="img/m-booth.jpg" alt="Black Mountain Seafood tent at the tailgate market" loading="lazy" data-speed=".3"></div>
+    <div>
+      <h2>Catch us at the market, too.</h2>
+      <p class="lede">In season, you'll find our blue tent at the Black Mountain Tailgate Market on Saturday mornings. Follow our Instagram for where we'll be each week.</p>
+      <p style="margin-top:24px"><a class="btn btn-buoy" href="https://www.instagram.com/blackmountainseafood/" target="_blank" rel="noopener">See this week's plans</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head center"><h2>Questions, answered.</h2></div>
+    <div class="faq">
+      <details><summary>How do I pre-order?</summary><div class="a">Join our <a href="index.html#weekly">weekly email</a>. Every Wednesday afternoon we send the updated fish inventory. Just reply to that email with what you'd like, and pick it up Friday or Saturday.</div></details>
+      <details><summary>What will be in the case this week?</summary><div class="a">It changes every week depending on what's fresh. The Wednesday email lists everything, and we post the case in our <a href="https://www.instagram.com/blackmountainseafood/" target="_blank" rel="noopener">Instagram stories</a> on Fridays and Saturdays.</div></details>
+      <details><summary>Where does your seafood come from?</summary><div class="a">Most of it is caught sustainably in the Atlantic Ocean, with a few responsibly aquacultured exceptions. We pick it up from our supplier late Thursday night and keep it on ice until you take it home.</div></details>
+      <details><summary>Do you sell out?</summary><div class="a">Yes, sometimes. Popular items can go fast, especially on Saturdays. Pre-ordering through the weekly email is the best way to make sure you get what you want.</div></details>
+      <details><summary>Can you help me figure out what to cook?</summary><div class="a">Absolutely, it's one of our favorite parts of the job. Ask at the counter, browse our <a href="recipes.html">recipe box</a>, or add your own favorite to our community recipe book.</div></details>
+      <details><summary>Are you open year-round?</summary><div class="a">Yes. We plan to stay open all year, with the occasional weekend off for holidays. Any closures show up in the hours section near the top of this page and in our weekly email.</div></details>
+      <details><summary>Can I call?</summary><div class="a">Yes. Call us at <a href="tel:+18284171057">(828) 417-1057</a>. If you prefer email, write to <a href="mailto:hello@blackmountainseafood.com">hello@blackmountainseafood.com</a>.</div></details>
+      <details><summary>I have another question.</summary><div class="a">Email us at <a href="mailto:hello@blackmountainseafood.com">hello@blackmountainseafood.com</a> and we'll get back to you.</div></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="floor">
+  <svg class="kelp" style="left:4%;height:180px" viewBox="0 0 40 200" aria-hidden="true"><path d="M20 200C5 160 35 130 18 90S30 30 22 0" stroke="#3d7f73" stroke-width="7" fill="none" stroke-linecap="round"/></svg>
+  <svg class="kelp" style="right:6%;height:160px;animation-delay:-4s" viewBox="0 0 40 200" aria-hidden="true"><path d="M20 200C5 160 35 130 18 90S30 30 22 0" stroke="#3d7f73" stroke-width="7" fill="none" stroke-linecap="round"/></svg>
+  <div class="wrap">
+    <div class="floor-grid">
+      <div>
+        <a class="brand" href="index.html"><img src="img/logo.jpg" alt=""><b>Black Mountain Seafood</b></a>
+        <p class="tag">Give thanks for fish.</p>
+        <p>Fresh Atlantic catch and more, every Friday and Saturday in Black Mountain, NC.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/blackmountainseafood/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 2.2c-2.7 0-3 0-4 .1-3.6.2-5.5 2-5.7 5.7-.1 1-.1 1.3-.1 4s0 3 .1 4c.2 3.6 2 5.5 5.7 5.7 1 .1 1.3.1 4 .1s3 0 4-.1c3.6-.2 5.5-2 5.7-5.7.1-1 .1-1.3.1-4s0-3-.1-4c-.2-3.6-2-5.5-5.7-5.7-1-.1-1.3-.1-4-.1z"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61583040272928" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8V6.5c0-.7.5-1 1-1h2V2h-3c-3 0-4 2-4 4.3V8H8v3.6h2V22h4V11.6h2.8L17 8z"/></svg></a>
+          <a href="mailto:hello@blackmountainseafood.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2.3V17h16V7.3l-8 5.4z"/></svg></a>
+          <a href="tel:+18284171057" aria-label="Call"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></a>
+        </div>
+      </div>
+      <div><h4>Hours</h4><ul><li>Friday 10am to 6pm</li><li>Saturday 10am to 1pm</li><li><span data-status></span></li></ul></div>
+      <div><h4>Find us</h4><ul><li>213 E State St</li><li>Black Mountain, NC 28711</li><li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Black+Mountain+Seafood,+213+E+State+St,+Black+Mountain,+NC+28711" target="_blank" rel="noopener">Get directions</a></li><li><a href="tel:+18284171057">(828) 417-1057</a></li><li><a href="mailto:hello@blackmountainseafood.com">hello@blackmountainseafood.com</a></li></ul></div>
+      <div><h4>Explore</h4><ul><li><a href="visit.html">Visit and FAQ</a></li><li><a href="recipes.html">Recipe box</a></li><li><a href="story.html">Our story</a></li><li><a href="index.html#weekly">Weekly email</a></li><li><a href="https://www.blackmountainnews.com/story/news/2026/07/24/black-mountain-seafoods-new-owners-want-to-carry-on-legacy/91020029007/" target="_blank" rel="noopener">In the news</a></li><li><a href="https://www.explorethevalley.org/" target="_blank" rel="noopener">Chamber member</a></li></ul></div>
+    </div>
+    <div class="floor-bottom"><span>&copy; <span data-year>2026</span> Black Mountain Seafood</span><span>Site by <a href="https://jrns-hub.github.io/bearly-technical/" target="_blank" rel="noopener">Bearly Technical</a></span></div>
+    <p class="credits">Species illustrations: NOAA Fisheries and U.S. Fish &amp; Wildlife Service (public domain); branzino by Almae scientia (CC BY 4.0); Argentine red shrimp photo by Assianir (CC BY-SA 3.0), via Wikimedia Commons.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="site.js?v=9"></script>
+<script>
+// Upcoming closures from site.js, shown for the next 6 weeks
+(function(){var out=[],now=new Date(),seen={};Object.keys(BMS.CLOSED).sort().forEach(function(k){var d=new Date(k+"T12:00:00Z");if(d-now>-864e5&&d-now<42*864e5){var lbl=BMS.CLOSED[k];var ds=d.toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",timeZone:"UTC"});(seen[lbl]=seen[lbl]||[]).push(ds);}});
+Object.keys(seen).forEach(function(l){out.push("<p>"+l+": "+seen[l].join(" and ")+"</p>");});document.getElementById("closures").innerHTML=out.join("");})();
+</script>
+</body>
+</html>
